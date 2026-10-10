@@ -16,6 +16,8 @@ concurrency:
 # ジョブ名を変更する場合は、組織の Repository Rulesets の必須ステータスチェックも更新する
 jobs:
   lint:
-    uses: maerchen-cloud/.github/.github/workflows/reusable-lint.yml@main
+    # Reusable Workflow の変更をマージ前に検証するために相対参照で呼ぶ
+    uses: ./.github/workflows/reusable-lint.yml
   secret-scan:
-    uses: maerchen-cloud/.github/.github/workflows/reusable-secret-scan.yml@main
+    # Reusable Workflow の変更をマージ前に検証するために相対参照で呼ぶ
+    uses: ./.github/workflows/reusable-secret-scan.yml

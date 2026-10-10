@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigestsToSemver"],
+  "semanticCommits": "enabled",
+  "timezone": "Asia/Tokyo",
+  "schedule": ["on monday"],
+  "automergeStrategy": "squash",
+  "minimumReleaseAge": "7 days",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "description": "0.x の minor の更新は互換性を壊しうるため自動マージしない",
+      "matchUpdateTypes": ["minor"],
+      "matchCurrentVersion": "/^v?0\\./",
+      "automerge": false
+    },
+    {
+      "description": "組織内の Reusable Workflow は変更を即座に伝播させるため digest を固定しない",
+      "matchDepNames": ["maerchen-cloud/.github"],
+      "pinDigests": false
+    }
+  ]
+}

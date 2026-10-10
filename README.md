@@ -1,8 +1,48 @@
-# template-base
+# .github
 
-<!-- テンプレートから作成した場合は、この README をプロジェクトの内容に書き換える -->
+このリポジトリは `maerchen-cloud` 組織の共通の設定やドキュメントを管理する。
 
-このリポジトリは小規模プロジェクトやドキュメント管理を行うリポジトリのテンプレートとして使用する。
+## コミュニティヘルスファイル
+
+コミュニティヘルスファイルとは、GitHub が定めているテンプレートや規約などの特定のファイルを指す。
+コミュニティヘルスファイルは、各リポジトリに同名のファイルが存在しない場合、このリポジトリのファイルの内容が各リポジトリに適用される。
+適用されるのはこのリポジトリが public の場合に限られるため、現時点では適用されない。
+
+| ファイル | 内容 |
+| --- | --- |
+| `.github/ISSUE_TEMPLATE/` | Issue のテンプレート |
+| `.github/PULL_REQUEST_TEMPLATE.md` | プルリクエスト本文のテンプレート |
+| `.github/CONTRIBUTING.md` | 組織共通の開発規約 |
+
+## Reusable Workflow
+
+| ファイル | 検証する対象 |
+| --- | --- |
+| `reusable-lint.yml` | コードの整形と Lint |
+| `reusable-secret-scan.yml` | シークレットの混入 |
+| `reusable-pull-request-title.yml` | プルリクエストタイトル |
+
+各リポジトリは次のように Reusable Workflow を呼び出す。
+
+```yaml
+jobs:
+  lint:
+    uses: maerchen-cloud/.github/.github/workflows/reusable-lint.yml@main
+```
+
+## Renovate
+
+`default.json` では Renovate の共通設定を定義する。
+各リポジトリは `renovate.json` の `extends` で次のように Renovate の共通設定を参照する。
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>maerchen-cloud/.github"]
+}
+```
+
+このリポジトリ自身の `renovate.json` も、他のリポジトリと同じ書き方で `default.json` を参照している。
 
 ## セットアップ
 
@@ -74,4 +114,4 @@ lefthook run pre-commit --all-files
 
 | ドキュメント | 内容 |
 | --- | --- |
-| [コントリビューションガイド](https://github.com/maerchen-cloud/.github/blob/main/.github/CONTRIBUTING.md) | 組織共通の開発規約 |
+| [コントリビューションガイド](.github/CONTRIBUTING.md) | 組織共通の開発規約 |
