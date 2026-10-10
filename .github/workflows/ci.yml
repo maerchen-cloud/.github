@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # main ではコミットごとに検証結果を残すため、キャンセルしない
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+# ジョブ名を変更する場合は、組織の Repository Rulesets の必須ステータスチェックも更新する
+jobs:
+  lint:
+    uses: maerchen-cloud/.github/.github/workflows/reusable-lint.yml@main
+  secret-scan:
+    uses: maerchen-cloud/.github/.github/workflows/reusable-secret-scan.yml@main

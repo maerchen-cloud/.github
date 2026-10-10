@@ -1,0 +1,17 @@
+name: pull-request-title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# ジョブ名を変更する場合は、組織の Repository Rulesets の必須ステータスチェックも更新する
+jobs:
+  pull-request-title:
+    uses: maerchen-cloud/.github/.github/workflows/reusable-pull-request-title.yml@main

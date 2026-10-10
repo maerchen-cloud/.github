@@ -1,0 +1,6 @@
+[formatting]
+array_auto_expand = true
+array_trailing_comma = true
+column_width = 100
+indent_string = "  "
+reorder_keys = true

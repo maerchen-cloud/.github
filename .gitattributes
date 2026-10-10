@@ -1,0 +1,27 @@
+* text=auto eol=lf
+
+# SVG
+*.svg text
+
+# 画像
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+
+# ドキュメント
+*.pdf binary
+
+# アーカイブ
+*.zip binary
+*.gz  binary
+*.tgz binary
+*.7z  binary
+
+# フォント
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary

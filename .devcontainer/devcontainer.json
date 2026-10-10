@@ -1,0 +1,60 @@
+{
+  "name": "${localWorkspaceFolderBasename}",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1.1.0": {},
+    "ghcr.io/devcontainers-extra/features/mise:1.0.0": {}
+  },
+  "mounts": [
+    "type=volume,source=claude-code-config,target=/home/vscode/.claude",
+    "type=volume,source=gh-config,target=/home/vscode/.config/gh",
+    "type=volume,source=chezmoi-source,target=/home/vscode/.local/share/chezmoi"
+  ],
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
+    // claude の実行時に anthropic.claude-code が自動インストールされるのを防ぐ
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true"
+  },
+  "remoteEnv": {
+    "PATH": "/home/vscode/.local/bin:/home/vscode/.local/share/mise/shims:${containerEnv:PATH}"
+  },
+  "onCreateCommand": {
+    "claude-code-config": "sudo chown -R vscode:vscode /home/vscode/.claude",
+    "gh-config": "sudo chown -R vscode:vscode /home/vscode/.config/gh",
+    "local": "sudo chown -R vscode:vscode /home/vscode/.local"
+  },
+  "postCreateCommand": {
+    "claude": "curl -fsSL https://claude.ai/install.sh | bash",
+    "mise": "mise trust && mise run setup"
+  },
+  "postStartCommand": "chezmoi apply",
+  // setup の完了後に拡張機能をインストールする
+  "waitFor": "postCreateCommand",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bierner.markdown-mermaid",
+        "editorconfig.editorconfig",
+        "github.github-vscode-theme",
+        "ms-ceintl.vscode-language-pack-ja",
+        "pkief.material-icon-theme",
+        "redhat.vscode-yaml",
+        "rvben.rumdl",
+        "tamasfe.even-better-toml",
+        "tekumara.typos-vscode",
+        "usernamehw.errorlens",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        // 拡張機能が同梱するバイナリではなく mise が管理しているバイナリを用いる
+        // typos は typos-lsp を必要とするため、mise が管理しているバイナリと統一できない
+        "evenBetterToml.taplo.bundled": false,
+        "evenBetterToml.taplo.path": "/home/vscode/.local/share/mise/shims/taplo",
+        "rumdl.server.path": "/home/vscode/.local/share/mise/shims/rumdl",
+        // 拡張機能による整形は yamlfmt による整形と異なるため無効にする
+        "yaml.format.enable": false
+      }
+    }
+  }
+}

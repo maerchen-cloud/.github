@@ -1,0 +1,48 @@
+pre-commit:
+  jobs:
+    - name: markdown-lint
+      glob: "*.md"
+      run: rumdl check --fix {staged_files}
+      stage_fixed: true
+
+    - name: yaml-format
+      glob: "*.{yaml,yml}"
+      run: yamlfmt {staged_files}
+      stage_fixed: true
+
+    - name: toml-format
+      glob: "*.toml"
+      run: taplo format {staged_files}
+      stage_fixed: true
+
+    - name: json-check
+      glob: "*.json"
+      # コメントを含む JSON は jq で解析できないため除外する
+      exclude:
+        - .devcontainer/devcontainer.json
+      # まとめて渡すと空のファイルを見逃し、失敗したファイルも特定できないため、1 ファイルずつ検査する
+      run: |
+        exit_code=0
+        for file in {staged_files}; do
+          if ! jq -e -s 'length == 1 and (.[0] | type == "object")' -- "$file" > /dev/null; then
+            echo "expected a single JSON object: $file" >&2
+            exit_code=1
+          fi
+        done
+        exit $exit_code
+
+    - name: typo-check
+      # ファイルを明示的に渡すと .typos.toml の除外設定が無視されるため --force-exclude を付ける
+      run: typos --force-exclude {staged_files}
+
+    - name: secret-scan
+      run: gitleaks git --staged --no-banner
+      # CI では staged がなく空振りするためスキップする
+      skip:
+        - run: test "${CI}" = "true"
+
+commit-msg:
+  jobs:
+    - name: commit-message-lint
+      # コミットメッセージが Conventional Commits に沿うか検証する
+      run: cog verify --ignore-merge-commits --ignore-fixup-commits --file {1}
