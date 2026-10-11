@@ -140,10 +140,7 @@ Issue は、作業対象のリポジトリに作る。
 
 ### 本文
 
-- `.github/PULL_REQUEST_TEMPLATE.md` に沿って書く
-- 結論と理由を書く
-- Issue の計画と違う方法を選んだ場合は、その理由も書く
-- 対応する Issue を `Closes #N` でつなぐ
+`.github/PULL_REQUEST_TEMPLATE.md` に沿って書く。
 
 ## テンプレートリポジトリへの反映
 
