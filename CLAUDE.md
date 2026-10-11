@@ -8,7 +8,7 @@
 
 ### Reusable Workflow
 
-Reusable Workflow を変更すると、参照している他のリポジトリの CI に影響するため、後方互換性に注意する。
+Reusable Workflow を変更すると、参照しているほかのリポジトリの CI に影響するため、後方互換性に注意する。
 
 ### Renovate
 

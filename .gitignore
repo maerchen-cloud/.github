@@ -2,7 +2,7 @@
 .DS_Store
 Thumbs.db
 
-# エディタ
+# エディター
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json

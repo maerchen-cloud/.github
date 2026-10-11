@@ -42,7 +42,7 @@ jobs:
 }
 ```
 
-このリポジトリ自身の `renovate.json` も、他のリポジトリと同じ書き方で `default.json` を参照している。
+このリポジトリ自身の `renovate.json` も、ほかのリポジトリと同じ書き方で `default.json` を参照している。
 
 ## セットアップ
 
