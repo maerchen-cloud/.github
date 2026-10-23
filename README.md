@@ -1,12 +1,12 @@
 # .github
 
-このリポジトリは `maerchen-cloud` 組織の共通の設定やドキュメントを管理する。
+このリポジトリーは `maerchen-cloud` 組織の共通の設定やドキュメントを管理する。
 
 ## コミュニティヘルスファイル
 
 コミュニティヘルスファイルとは、GitHub が定めているテンプレートや規約などの特定のファイルを指す。
-コミュニティヘルスファイルは、各リポジトリに同名のファイルが存在しない場合、このリポジトリのファイルの内容が各リポジトリに適用される。
-適用されるのはこのリポジトリが public の場合に限られるため、現時点では適用されない。
+コミュニティヘルスファイルは、各リポジトリーに同名のファイルが存在しない場合、このリポジトリーのファイルの内容が各リポジトリーに適用される。
+適用されるのはこのリポジトリーが public の場合に限られるため、現時点では適用されない。
 
 | ファイル | 内容 |
 | --- | --- |
@@ -22,7 +22,7 @@
 | `reusable-secret-scan.yml` | シークレットの混入 |
 | `reusable-pull-request-title.yml` | プルリクエストタイトル |
 
-各リポジトリは次のように Reusable Workflow を呼び出す。
+各リポジトリーは次のように Reusable Workflow を呼び出す。
 
 ```yaml
 jobs:
@@ -33,7 +33,7 @@ jobs:
 ## Renovate
 
 `default.json` では Renovate の共通設定を定義する。
-各リポジトリは `renovate.json` の `extends` で次のように Renovate の共通設定を参照する。
+各リポジトリーは `renovate.json` の `extends` で次のように Renovate の共通設定を参照する。
 
 ```json
 {
@@ -42,7 +42,7 @@ jobs:
 }
 ```
 
-このリポジトリ自身の `renovate.json` も、ほかのリポジトリと同じ書き方で `default.json` を参照している。
+このリポジトリー自身の `renovate.json` も、ほかのリポジトリーと同じ書き方で `default.json` を参照している。
 
 ## セットアップ
 
@@ -79,10 +79,10 @@ jobs:
 
 ### Dev Container
 
-Dev Container を用いて開発することもできる。
+Dev Container を使用して開発することもできる。
 VS Code と Dev Containers 拡張機能が必要である。
 
-1. VS Code で、このリポジトリをコンテナーで開く
+1. VS Code で、このリポジトリーをコンテナーで開く
    - コンテナーの作成時に、[セットアップ](#セットアップ) の手順 1 から 3 が自動で実行される
 2. コンテナー内のターミナルで、[セットアップ](#セットアップ) の手順 4 と 5 を実行する
    - 認証情報と dotfiles は名前付きボリュームで共有されるため、2 つ目以降のコンテナーでは実行しなくてよい
@@ -93,7 +93,7 @@ VS Code と Dev Containers 拡張機能が必要である。
 | --- | --- | --- |
 | `claude-code-config` | Claude Code の設定と認証情報 | `~/.claude/` |
 | `gh-config` | GitHub CLI の設定と認証情報 | `~/.config/gh/` |
-| `chezmoi-source` | dotfiles の元ファイル | `~/.local/share/chezmoi/` |
+| `chezmoi-source` | chezmoi のソースディレクトリー | `~/.local/share/chezmoi/` |
 
 ## 開発
 
@@ -105,7 +105,7 @@ lefthook の `commit-msg` フックが検証するため、準拠しない場合
 ### 静的解析
 
 lefthook の `pre-commit` フックが静的解析を実行し、整形した内容をステージする。
-手動で静的解析を実行する場合は次のコマンドを用いる。
+手動で静的解析を実行する場合は次のコマンドを使用する。
 
 ```bash
 lefthook run pre-commit --all-files
