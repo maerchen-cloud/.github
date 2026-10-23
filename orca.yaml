@@ -1,0 +1,8 @@
+scripts:
+  setup: |
+    mise trust
+    mise run setup
+setupAgentStartupPolicy: wait-for-setup
+worktree:
+  sharedDirectories:
+    - tmp
