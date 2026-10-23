@@ -13,7 +13,7 @@
   ],
   "containerEnv": {
     "CLAUDE_CONFIG_DIR": "/home/vscode/.claude",
-    // claude の実行時に anthropic.claude-code が自動インストールされるのを防ぐ
+    // claude の実行時に anthropic.claude-code の自動インストールを防止する
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "true"
   },
   "remoteEnv": {
@@ -47,8 +47,8 @@
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
-        // 拡張機能が同梱するバイナリではなく mise が管理しているバイナリを用いる
-        // typos は typos-lsp を必要とするため、mise が管理しているバイナリと統一できない
+        // 拡張機能が同梱するバイナリーではなく mise が管理しているバイナリーを使用する
+        // typos は typos-lsp を必要とするため、mise が管理しているバイナリーと統一できない
         "evenBetterToml.taplo.bundled": false,
         "evenBetterToml.taplo.path": "/home/vscode/.local/share/mise/shims/taplo",
         "rumdl.server.path": "/home/vscode/.local/share/mise/shims/rumdl",
