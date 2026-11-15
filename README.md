@@ -15,11 +15,12 @@
 
 ## Reusable Workflow
 
-| ファイル | 検証する対象 |
+| ファイル | 内容 |
 | --- | --- |
-| `reusable-lint.yml` | コードの整形と Lint |
-| `reusable-secret-scan.yml` | シークレットの混入 |
-| `reusable-pull-request-title.yml` | プルリクエストタイトル |
+| `reusable-lint.yml` | コードの整形と Lint を検証する |
+| `reusable-secret-scan.yml` | シークレットの混入を検証する |
+| `reusable-pull-request-title.yml` | プルリクエストタイトルを検証する |
+| `reusable-add-to-project.yml` | Issue を組織の Project に追加する |
 
 各リポジトリーは次のように Reusable Workflow を呼び出す。
 
@@ -28,27 +29,6 @@ jobs:
   lint:
     uses: maerchen-cloud/.github/.github/workflows/reusable-lint.yml@main
 ```
-
-`reusable-add-to-project.yml` は、検証ではなく、Issue を組織の Project **maerchen-cloud** に追加する。
-Project の自動追加のワークフローを設定できないリポジトリーで使用する。
-各リポジトリーは次のように呼び出す。
-
-```yaml
-on:
-  issues:
-    types: [opened, reopened, transferred]
-
-permissions: {}
-
-jobs:
-  add-to-project:
-    uses: maerchen-cloud/.github/.github/workflows/reusable-add-to-project.yml@main
-    secrets:
-      PROJECT_APP_PRIVATE_KEY: ${{ secrets.PROJECT_APP_PRIVATE_KEY }}
-```
-
-組織の変数 `PROJECT_APP_CLIENT_ID` と、組織のシークレット `PROJECT_APP_PRIVATE_KEY` を使用する。
-この 2 つには、組織の Project を読み書きする GitHub App の Client ID と秘密鍵を登録する。
 
 ## Renovate
 
