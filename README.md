@@ -10,7 +10,7 @@
 | ファイル | 内容 |
 | --- | --- |
 | `.github/ISSUE_TEMPLATE/` | Issue のテンプレート |
-| `.github/PULL_REQUEST_TEMPLATE.md` | プルリクエストの本文のテンプレート |
+| `.github/PULL_REQUEST_TEMPLATE.md` | プルリクエストのテンプレート |
 | `.github/CONTRIBUTING.md` | 組織共通の開発規約 |
 
 ## Reusable Workflow
