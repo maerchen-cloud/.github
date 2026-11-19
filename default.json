@@ -22,6 +22,17 @@
       "automerge": false
     },
     {
+      "description": "Python の patch の更新を minor の更新のマージを待たずに作成するため別のブランチにする",
+      "matchDepNames": ["python"],
+      "separateMinorPatch": true
+    },
+    {
+      "description": "Python の minor と major の更新は互換性を壊しうるため自動マージしない",
+      "matchDepNames": ["python"],
+      "matchUpdateTypes": ["minor", "major"],
+      "automerge": false
+    },
+    {
       "description": "組織内の再利用可能なワークフローは変更を即座に伝播させるため digest を固定しない",
       "matchDepNames": ["maerchen-cloud/.github"],
       "pinDigests": false
