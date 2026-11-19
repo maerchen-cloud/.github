@@ -2,7 +2,7 @@
 name: 機能要望
 about: 新機能と改善の提案
 title: ""
-labels: enhancement
+type: Feature
 assignees: ""
 ---
 
