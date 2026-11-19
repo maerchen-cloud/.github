@@ -22,12 +22,12 @@
       "automerge": false
     },
     {
-      "description": "Python の minor の更新を保留している間も patch の更新を作成するため minor と patch を分ける",
+      "description": "Python の minor と patch を分け、minor の更新をマージする前も patch の更新を作成する",
       "matchDepNames": ["python"],
       "separateMinorPatch": true
     },
     {
-      "description": "Python の minor と major の更新は互換性を壊しうるため x.y.1 が出る頃まで保留し自動マージしない",
+      "description": "Python の minor と major の更新は互換性を壊しうるため 90 日保留し自動マージしない",
       "matchDepNames": ["python"],
       "matchUpdateTypes": ["minor", "major"],
       "minimumReleaseAge": "90 days",
