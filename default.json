@@ -22,9 +22,15 @@
       "automerge": false
     },
     {
-      "description": "Python の minor の更新は標準ライブラリーの削除を含むため自動マージしない",
+      "description": "Python の minor の更新を保留している間も patch の更新を作成するため minor と patch を分ける",
       "matchDepNames": ["python"],
-      "matchUpdateTypes": ["minor"],
+      "separateMinorPatch": true
+    },
+    {
+      "description": "Python の minor と major の更新は互換性を壊しうるため x.y.1 が出る頃まで保留し自動マージしない",
+      "matchDepNames": ["python"],
+      "matchUpdateTypes": ["minor", "major"],
+      "minimumReleaseAge": "90 days",
       "automerge": false
     },
     {
