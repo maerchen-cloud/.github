@@ -27,10 +27,9 @@
       "separateMinorPatch": true
     },
     {
-      "description": "Python の minor と major の更新は互換性を壊しうるため 90 日保留し自動マージしない",
+      "description": "Python の minor と major の更新は互換性を壊しうるため自動マージしない",
       "matchDepNames": ["python"],
       "matchUpdateTypes": ["minor", "major"],
-      "minimumReleaseAge": "90 days",
       "automerge": false
     },
     {
