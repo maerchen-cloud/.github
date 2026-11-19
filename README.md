@@ -5,21 +5,22 @@
 ## コミュニティヘルスファイル
 
 コミュニティヘルスファイルとは、GitHub が定めているテンプレートや規約などの特定のファイルを指す。
-コミュニティヘルスファイルは、各リポジトリーに同名のファイルが存在しない場合、このリポジトリーのファイルの内容が各リポジトリーに適用される。
+各リポジトリーに同名のファイルが存在しない場合は、このリポジトリーのコミュニティヘルスファイルが適用される。
 
 | ファイル | 内容 |
 | --- | --- |
 | `.github/ISSUE_TEMPLATE/` | Issue のテンプレート |
-| `.github/PULL_REQUEST_TEMPLATE.md` | プルリクエスト本文のテンプレート |
+| `.github/PULL_REQUEST_TEMPLATE.md` | プルリクエストのテンプレート |
 | `.github/CONTRIBUTING.md` | 組織共通の開発規約 |
 
 ## 再利用可能なワークフロー
 
-| ファイル | 検証する対象 |
+| ファイル | 内容 |
 | --- | --- |
-| `reusable-lint.yml` | コードの整形と Lint |
-| `reusable-secret-scan.yml` | シークレットの混入 |
-| `reusable-pull-request-title.yml` | プルリクエストタイトル |
+| `reusable-lint.yml` | コードの整形と Lint を検証する |
+| `reusable-secret-scan.yml` | シークレットの混入を検証する |
+| `reusable-pull-request-title.yml` | プルリクエストのタイトルを検証する |
+| `reusable-add-to-project.yml` | private のリポジトリーの Issue を組織の Project に追加する |
 
 各リポジトリーは次のように再利用可能なワークフローを呼び出す。
 
