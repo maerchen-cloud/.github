@@ -13,7 +13,7 @@
 | `.github/PULL_REQUEST_TEMPLATE.md` | プルリクエスト本文のテンプレート |
 | `.github/CONTRIBUTING.md` | 組織共通の開発規約 |
 
-## Reusable Workflow
+## 再利用可能なワークフロー
 
 | ファイル | 検証する対象 |
 | --- | --- |
@@ -21,7 +21,7 @@
 | `reusable-secret-scan.yml` | シークレットの混入 |
 | `reusable-pull-request-title.yml` | プルリクエストタイトル |
 
-各リポジトリーは次のように Reusable Workflow を呼び出す。
+各リポジトリーは次のように再利用可能なワークフローを呼び出す。
 
 ```yaml
 jobs:
