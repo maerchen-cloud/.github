@@ -22,6 +22,12 @@
       "automerge": false
     },
     {
+      "description": "Python の minor の更新は標準ライブラリーの削除を含むため自動マージしない",
+      "matchDepNames": ["python"],
+      "matchUpdateTypes": ["minor"],
+      "automerge": false
+    },
+    {
       "description": "組織内の再利用可能なワークフローは変更を即座に伝播させるため digest を固定しない",
       "matchDepNames": ["maerchen-cloud/.github"],
       "pinDigests": false
