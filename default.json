@@ -22,7 +22,7 @@
       "automerge": false
     },
     {
-      "description": "Python の minor と patch を分け、minor の更新をマージする前も patch の更新を作成する",
+      "description": "Python の patch の更新を minor と別のブランチにし、minor の更新を待たずに作成する",
       "matchDepNames": ["python"],
       "separateMinorPatch": true
     },
