@@ -13,7 +13,7 @@
 | `.github/PULL_REQUEST_TEMPLATE.md` | プルリクエストのテンプレート |
 | `.github/CONTRIBUTING.md` | 組織共通の開発規約 |
 
-## Reusable Workflow
+## 再利用可能なワークフロー
 
 | ファイル | 内容 |
 | --- | --- |
@@ -22,7 +22,7 @@
 | `reusable-pull-request-title.yml` | プルリクエストのタイトルを検証する |
 | `reusable-add-to-project.yml` | private のリポジトリーの Issue を組織の Project に追加する |
 
-各リポジトリーは次のように Reusable Workflow を呼び出す。
+各リポジトリーは次のように再利用可能なワークフローを呼び出す。
 
 ```yaml
 jobs:
