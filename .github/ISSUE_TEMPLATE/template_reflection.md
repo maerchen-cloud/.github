@@ -2,7 +2,7 @@
 name: テンプレートリポジトリへの反映
 about: 派生先のリポジトリで加えた変更をテンプレートリポジトリへ戻す
 title: ""
-labels: enhancement
+type: Task
 assignees: ""
 ---
 
