@@ -1,8 +1,8 @@
 ---
-name: 機能要望
-about: 新機能と改善の提案
+name: 作業
+about: 新機能、改善、決定、調査など、バグ以外の作業の提案
 title: ""
-type: Feature
+type: Task
 assignees: ""
 ---
 
