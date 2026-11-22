@@ -15,6 +15,15 @@ pre-commit:
       run: taplo format {staged_files}
       stage_fixed: true
 
+    - name: shell-lint
+      glob: "*.sh"
+      run: shellcheck {staged_files}
+
+    - name: shell-format
+      glob: "*.sh"
+      run: shfmt -w {staged_files}
+      stage_fixed: true
+
     - name: json-check
       glob: "*.json"
       # コメントを含む JSON は jq で解析できないため除外する
