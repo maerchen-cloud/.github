@@ -1,6 +1,6 @@
 ---
 name: 作業
-about: バグ報告とテンプレートリポジトリへの反映を除く作業
+about: 機能の追加、改善、調査、決定などの作業
 title: ""
 type: Task
 assignees: ""
