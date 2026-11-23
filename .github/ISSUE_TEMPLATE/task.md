@@ -1,5 +1,5 @@
 ---
-name: 作業
+name: タスク
 about: 機能の追加、改善、調査などの作業
 title: ""
 type: Task
