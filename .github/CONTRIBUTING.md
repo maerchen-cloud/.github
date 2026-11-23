@@ -42,8 +42,8 @@ type は変更の種類を表す。
 Issue は次のテンプレートに沿って作成する。
 
 - バグ報告は `.github/ISSUE_TEMPLATE/bug_report.md` を使う
-- 機能要望は `.github/ISSUE_TEMPLATE/feature_request.md` を使う
 - テンプレートリポジトリへの反映は `.github/ISSUE_TEMPLATE/template_reflection.md` を使う
+- そのほかの作業は `.github/ISSUE_TEMPLATE/task.md` を使う
 
 Issue は、作業対象のリポジトリに作成する。
 1 つの Issue は、1 つのプルリクエストでクローズできる範囲にする。
